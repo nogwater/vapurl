@@ -1,0 +1,12 @@
+{% extends "nametag.html" %}{% block head_title %}{{block.super}} - Help{% endblock %}
+{% block head_css %}    {{block.super}}    {% endblock %}
+{% block head_javascript %}    {{block.super}}    {% endblock %}
+{% block nametagcontent %}
+<h3>Help</h3>
+Use VapURL to create a temporary url that redirects to a page. 
+The link will stop working as soon as either the visit limit or time limit has been reached.
+<h3>Bookmarklet</h3>
+If you want an easy way to create VapURL for the page you're looking at, just drag the VapURL 
+bookmarklet to your browser's bookmarks or favorites folder.  Click the bookmark when you're on a 
+page to create a VapURL for it.
+{% endblock %}

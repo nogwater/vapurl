@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="center">
+    <h1><a href="/">Welcome to VapURL</a></h1>
+    <div id="nametagconent">
+    {% block nametagcontent %}
+        Enter a URL:<br />
+        <form id="posturlform" method="post" action="/">
+            <table width="100%">
+            <tr>
+                <td width="99%"><input type="text" id="url" name="url" value="http://"></td>
+                <td><input type="submit" value="Vaporize!"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    Expire after <select name="max_visits">
+                        <option value="1" selected="yes">1 visit</option>
+                        <option value="5">5 visits</option>
+                        <option value="10">10 visits</option>
+                        <option value="25">25 visits</option>
+                        <option value="50">50 visits</option>
+                        <option value="100">100 visits</option>
+                    </select> or <select name="max_time">
+                        <option value="1">1 minute</option>
+                        <option value="60" selected="yes">1 hour</option>
+                        <option value="1440">1 day</option>
+                        <option value="10080">1 week</option>
+                    </select>
+                </td>
+            </tr>
+            </table>
+        </form>
+        <div id="yoururlisbox">
+            {% if url %}
+            <hr>
+            Your URL is:<br />
+            <span id="vaporurl">{{ url|escape }}</span><br>
+            {% endif %}
+        </div>
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

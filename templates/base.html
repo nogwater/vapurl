@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{% block head_title %}VapURL - Disposable URLs (beta){% endblock %}</title>
+    {% block head_css %}
+    <link rel="stylesheet" href="/static/css/base.css" />
+    {% endblock %}
+    {% block head_javascript %}{% endblock %}
+</head>
+<body>
+{% block content %}{% endblock %}
+<div id="footer">
+    &copy; 2009 <a href="/">VapURL.com</a> |
+    <a href="/info">Info</a> |
+    <a href="/api">API</a> |
+    <a href="/help">Help</a> |
+    <a href="/about">About</a> |
+    Bookmarklet: <a href="javascript:location.href='http://vapurl.com/?url='+encodeURIComponent(location.href)" 
+                    title="Drag the link to your bookmarks for later use."
+                    onclick="alert(this.title);return false;">VapURL!</a> |
+    <span id="version">v.{{ version }} - beta</span>
+</div>
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10154150-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- end Google Analytics -->
+</body>
+</html>

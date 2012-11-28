@@ -1,0 +1,9 @@
+TODO:
+
+implement json/xml api
+    JSON is done.  do we really need XML?
+
+stats tracking / summary table(s)
+    Basic version is done
+
+admin dashboard

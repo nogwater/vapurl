@@ -1,0 +1,71 @@
+{% extends "nametag.html" %}{% block head_title %}{{block.super}} - The disposable URL{% endblock %}
+{% block head_css %}    {{block.super}}    {% endblock %}
+{% block head_javascript %}    {{block.super}}    
+<script type="text/javascript" src="/static/js/main.js"></script>
+{% endblock %}
+{% block nametagcontent %}
+Enter a URL:<br />
+<form id="posturlform" method="post" action="/" onsubmit="return validate();">
+    <table width="100%">
+    <tr>
+        <td width="99%"><input type="text" id="url" name="url" value="{{ url }}"></td>
+        <td><input type="submit" value="Vaporize!"></td>
+    </tr>
+    <tr>
+      <td colspan='2'><span id='urlError' class='errorMsg'>You need to enter something for the URL. I can't Vaporize nothing.</span></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+          <table width='1%'> 
+            <tr>
+              <td nowrap='true'>
+              Expire after <select id="max_visits" name="max_visits" onchange='showCustomVisit();'> 
+                  <option value="1" selected="yes">1 visit</option>
+                  <option value="5">5 visits</option>
+                  <option value="10">10 visits</option>
+                  <option value="25">25 visits</option>
+                  <option value="50">50 visits</option>
+                  <option value="100">100 visits</option>
+                  <option value='-1'>Custom</option>
+              </select>
+              </td>
+              <td> or </td>
+              <td><select id="max_time" name="max_time" onchange='showCustomTime();'>
+                  <option value="1">1 minute</option>
+                  <option value="60" selected="yes">1 hour</option>
+                  <option value="1440">1 day</option>
+                  <option value="10080">1 week</option>
+                  <option value='-1'>Custom</option>
+              </select>
+              </td>
+            </tr>
+            <tr>
+              <td nowrap='true'>
+                <label style='display:none;' id="customVisitsSpan">Custom Visits:<input style='margin-left:5px;' name='custom_visits' id='custom_visits' size='5' type='text'  value='1' /></label>
+              </td>
+              <td></td>
+              <td nowrap='true'>
+                <label style='display:none;' id="customTimeSpan">Custom Days:<input style='margin-left:5px;' name='custom_time' id='custom_time' size='5' type='text' value='7' /></label>
+              </td>
+            </tr>
+            <tr>
+              <td><span id='customVisitError' class='errorMsg'>Custom visits must be between 1 and 1,000,000.</span></td>
+              <td></td>
+              <td><span id='customTimeError' class='errorMsg'>Custom days must be between 1 and 1,000.</span></td>
+            </tr>
+          </table>
+        </td>
+    </tr>
+    </table>
+</form>
+<div id="yoururlisbox">
+    {% if vapurl %}
+    <hr>
+    Your VapURL is:<br />
+    <span id="vaporurl">{{ vapurl|escape }}</span><br />
+    <br />
+    Get info at <a href="/info?id={{ name }}">http://vapurl.com/info?id={{ name }}</a><br />
+    <span id="expiring">Expiring in {{ visits_remaining|escape }} visit{{ visits_remaining|pluralize }} or on {{ exp_datetime|date:"D d M Y \a\t H:i T" }}</span><br />
+    {% endif %}
+</div>
+{% endblock %}

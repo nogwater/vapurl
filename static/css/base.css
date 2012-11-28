@@ -1,0 +1,106 @@
+body {
+    margin:0;
+    padding:0;
+}
+
+a:link {
+    color:#050;
+    text-decoration:none;    
+}
+a:visited {
+    color:#070;
+    text-decoration:none;    
+}
+a:hover {
+    color:#070;
+    text-decoration:underline;  
+}
+a:active {
+    color:#070;
+    text-decoration:underline;  
+}
+
+h1 {
+    background-color:#007700;
+    color:#fff;
+    font-family:Palatino,serif;
+    height:50px;
+    margin:0;
+    padding-top:20px;
+    text-align:center;
+    
+    /*
+    border-radius:5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    */
+    -moz-border-radius-topright:10px;
+    -moz-border-radius-topleft:10px;
+    -webkit-border-top-right-radius:10px;
+    -webkit-border-top-left-radius:10px;
+}
+h1 a, h1 a:link, h1 a:visited, h1 a:hover, h1 a:active {
+    color:#fff;
+    text-decoration:none;
+}
+
+
+#center {
+    /* pseudo-vertical */
+    margin-top:100px;
+    /* horizontal */
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    
+    border:1px solid black;
+    -moz-border-radius-topright:10px;
+    -moz-border-radius-topleft:10px;
+    -webkit-border-top-right-radius:10px;
+    -webkit-border-top-left-radius:10px;
+    border-radius-top-right:10px;
+    border-radius-top-left:10px;
+    
+}
+
+#nametagconent {
+    padding:5px;
+}
+
+#yoururlisbox {
+    text-align:center;
+}
+
+#posturlform {
+    padding: 5px;
+}
+
+#url {
+    width:99%;
+    font-family:Lucida Console, Monaco, monospace;
+}
+
+#vaporurl {
+    color:#050;
+    font-family:Lucida Console, Monaco, monospace;
+}
+
+#footer {
+    position:absolute;
+    bottom:10px;
+    left:0;
+    width:100%;
+    text-align:center;
+}
+#version {
+    color:#555;
+}
+.errorMsg {
+  color:red;
+  font-size:small;
+  display:none;
+}
+#infoform {
+    text-align:center;
+    margin-bottom:20px;
+}

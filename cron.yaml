@@ -1,0 +1,4 @@
+cron:
+- description: clean out old data
+  url: /tasks/cleanup
+  schedule: every 24 hours

@@ -1,0 +1,25 @@
+{% extends "nametag.html" %}{% block head_title %}{{block.super}} - About Us{% endblock %}
+{% block head_css %}    {{block.super}}    {% endblock %}
+{% block head_javascript %}    {{block.super}}    {% endblock %}
+{% block nametagcontent %}
+<h2>API</h2>
+
+Request path: <b>/api/create</b><br />
+Method: <b>GET</b> or <b>POST</b><br />
+Input parameters:
+<blockquote>
+<b>url</b> - The desitnation url<br />
+<b>minutes</b> - The time in minutes before expiration (min: 0, max: 1440000)<br />
+<b>visits</b> - The number of visists before expiration<br />
+</blockquote>
+Results are returned as a JSON encoded string.  The result object will contain either:
+<blockquote>
+<b>id</b> - The id to append to http://vapurl.com/<br />
+or<br />
+<b>error</b> - An error message<br />
+</blockquote>
+<br />
+<b>Example</b><br />
+Request: http://vapurl.com/api/create?url=google.com&minutes=1&visits=1<br />
+Response: {"id":"6r783omub4"}<br />
+{% endblock %}

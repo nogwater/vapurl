@@ -1,0 +1,44 @@
+{% extends "nametag.html" %}{% block head_title %}{{block.super}} - About Us{% endblock %}
+{% block head_css %}    {{block.super}}    {% endblock %}
+{% block head_javascript %}    {{block.super}}    {% endblock %}
+{% block nametagcontent %}
+<h2>Info</h2>
+<div id="infoform">
+    Lookup info on a URL by id.
+    <form method="GET" action="/info">
+    http://vapurl.com/<input type="text" name="id" value="{{ name }}" size="10" />
+    <input type="submit" value="Get Info" />
+    </form>
+</div>
+{% if have_info %}
+<table>
+<tr>
+    <th align="right">Id</th>
+    <td>&nbsp;</td>
+    <td>{{ name }}</td>
+</tr>
+<tr>
+    <th align="right">Created</th>
+    <td>&nbsp;</td>
+    <td>{{ create_datetime|date:"D d M Y \a\t H:i T" }}</td>
+</tr>
+<tr>
+    <th align="right">Expires</th>
+    <td>&nbsp;</td>
+    <td>{{ exp_datetime|date:"D d M Y \a\t H:i T" }}</td>
+</tr>
+<tr>
+    <th align="right">Visists Used</th>
+    <td>&nbsp;</td>
+    <td>{{ visits_used }}</td>
+</tr>
+<tr>
+    <th align="right">Visists Remaining</th>
+    <td>&nbsp;</td>
+    <td>{{ visits_remaining }}</td>
+</tr>
+</table>
+{% else %}
+
+{% endif %}
+{% endblock %}
